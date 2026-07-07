@@ -1,4 +1,8 @@
 {
   "item.chaos.sword_chaos":"Sword of chaos",
-  "item.chaos.pickaxe_chaos": "Pickaxe of chaos"
+  "item.chaos.pickaxe_chaos": "Pickaxe of chaos",
+  "tag.item.chaos.chaos_material_tool": "Chaos Material Tool",
+  "block.chaos.chaos_core": "Chaos Core",
+  "item.chaos.chaos_core": "Chaos Core",
+  "item.chaos.ingot_chaos": "Chaos Ingot"
 }
