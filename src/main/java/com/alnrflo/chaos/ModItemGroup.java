@@ -19,8 +19,15 @@ public class ModItemGroup {
                     .displayItems((displayParameters, output) -> {
                         output.accept(ModItems.SWORD_CHAOS);
                         output.accept(ModItems.PICKAXE_CHAOS);
+                        output.accept(ModItems.SWORD_SEMI_CHAOS);
+                        output.accept(ModItems.PICKAXE_SEMI_CHAOS);
                         output.accept(ModItems.INGOT_CHAOS);
+                        output.accept(ModItems.SEMI_CHAOS);
+                        output.accept(ModItems.RAW_CHAOS);
                         output.accept(ModBlocks.CHAOS_CORE);
+                        output.accept(ModBlocks.CHAOS_ORE);
+                        output.accept(ModBlocks.SEMI_CHAOS_ORE);
+                        output.accept(ModBlocks.CHAOS_PORTAL_FRAME);
                     })
                     .build()
     );

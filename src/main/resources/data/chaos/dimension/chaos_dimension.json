@@ -1,24 +1,11 @@
 {
   "type": "chaos:chaos_dimension",
   "generator": {
-    "type": "minecraft:flat",
-    "settings": {
-      "layers": [
-        {
-          "block": "minecraft:bedrock",
-          "height": 1
-        },
-        {
-          "block": "chaos:chaos_core",
-          "height": 3
-        },
-        {
-          "block": "minecraft:stone",
-          "height": 60
-        }
-      ],
-      "biome": "minecraft:plains"
-    }
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "chaos:chaos_biome"
+    },
+    "settings": "chaos:chaos_dimension"
   }
 }
-

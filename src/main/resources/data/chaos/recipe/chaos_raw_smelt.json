@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "chaos:chaos_raw",
+  "result": {"id": "chaos:chaos_ingot_semi"},
+  "experience": 0.5,
+  "cookingtime": 200
+}

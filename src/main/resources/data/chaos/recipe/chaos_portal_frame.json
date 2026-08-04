@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NDN",
+    "DSD",
+    "NDN"
+  ],
+  "key": {
+    "N": "minecraft:netherite_ingot",
+    "D": "minecraft:diamond",
+    "S": "chaos:chaos_ingot_semi"
+  },
+  "result": {"id": "chaos:chaos_portal_frame", "count": 4}
+}

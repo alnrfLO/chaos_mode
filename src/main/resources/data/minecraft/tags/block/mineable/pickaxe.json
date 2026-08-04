@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "chaos:chaos_ore_semi",
+    "chaos:chaos_ore",
+    "chaos:chaos_portal_frame",
+    "chaos:chaos_core"
+  ]
+}

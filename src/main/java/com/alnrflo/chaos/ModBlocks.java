@@ -37,5 +37,17 @@ public class ModBlocks {
 
     public static final Block CHAOS_CORE = registerBlock("chaos_core", Block::new, BlockBehaviour.Properties.of());
 
+    public static final Block CHAOS_PORTAL = registerBlock("chaos_portal", ModPortalBlock::new,
+            BlockBehaviour.Properties.of().noCollision().lightLevel(state -> 11));
+
+    public static final Block SEMI_CHAOS_ORE = registerBlock("chaos_ore_semi", Block::new,
+            BlockBehaviour.Properties.of().strength(3.0f, 3.0f));
+
+    public static final Block CHAOS_ORE = registerBlock("chaos_ore", Block::new,
+            BlockBehaviour.Properties.of().strength(5.0f, 6.0f).lightLevel(state -> 4));
+
+    public static final Block CHAOS_PORTAL_FRAME = registerBlock("chaos_portal_frame", ChaosPortalFrameBlock::new,
+            BlockBehaviour.Properties.of().strength(50.0f, 1200.0f));
+
     public static void init() {}
 }

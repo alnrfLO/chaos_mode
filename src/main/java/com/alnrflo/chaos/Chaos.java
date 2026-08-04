@@ -24,6 +24,8 @@ public class Chaos implements ModInitializer {
 		ModItemGroup.init();
 		ModItems.init();
 		ModBlocks.init();
+		ModPortalActivation.register();
+		ModWorldGen.register();
 	}
 
 	public static Identifier id(String path) {

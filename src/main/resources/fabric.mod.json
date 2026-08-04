@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.alnrflo.chaos.Chaos"
+		],
+		"client": [
+			"com.alnrflo.chaos.ChaosClient"
 		]
 	},
 	"mixins": [

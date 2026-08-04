@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "I": "chaos:chaos_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {"id": "chaos:chaos_pickaxe", "count": 1}
+}

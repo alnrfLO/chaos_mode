@@ -1,8 +1,21 @@
 {
-  "item.chaos.sword_chaos":"Sword of chaos",
-  "item.chaos.pickaxe_chaos": "Pickaxe of chaos",
+  "item.chaos.chaos_sword":"Sword of chaos",
+  "item.chaos.chaos_pickaxe": "Pickaxe of chaos",
+  "item.chaos.chaos_sword_semi":"Sword of semi chaos",
+  "item.chaos.chaos_pickaxe_semi": "Pickaxe of semi chaos",
   "tag.item.chaos.chaos_material_tool": "Chaos Material Tool",
+  "tag.item.chaos.semi_chaos_material_tool": "Semi Chaos Material Tool",
   "block.chaos.chaos_core": "Chaos Core",
   "item.chaos.chaos_core": "Chaos Core",
-  "item.chaos.ingot_chaos": "Chaos Ingot"
+  "item.chaos.chaos_ingot": "Chaos Ingot",
+  "block.chaos.chaos_portal": "Chaos Portal",
+  "item.chaos.chaos_portal": "Chaos Portal",
+  "block.chaos.chaos_ore_semi": "Semi Chaos Ore",
+  "item.chaos.chaos_ore_semi": "Semi Chaos Ore",
+  "block.chaos.chaos_ore": "Chaos Ore",
+  "item.chaos.chaos_ore": "Chaos Ore",
+  "block.chaos.chaos_portal_frame": "Chaos Portal Frame",
+  "item.chaos.chaos_portal_frame": "Chaos Portal Frame",
+  "item.chaos.chaos_ingot_semi": "Semi Chaos Ingot",
+  "item.chaos.chaos_raw": "Raw Chaos"
 }
