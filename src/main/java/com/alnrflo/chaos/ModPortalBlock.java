@@ -1,6 +1,7 @@
 package com.alnrflo.chaos;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.SectionPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
@@ -51,7 +53,7 @@ public class ModPortalBlock extends Block {
         // Le portail de retour est généré au même X/Z que le portail source, à la surface
         // de la dimension cible (les deux mondes n'ont pas les mêmes limites de hauteur :
         // l'Overworld descend à Y=-64, la dimension chaos commence à Y=0).
-        int portalSurfaceY = targetLevel.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ());
+        int portalSurfaceY = surfaceY(targetLevel, pos.getX(), pos.getZ());
         BlockPos arrivalCenter = new BlockPos(pos.getX(), portalSurfaceY, pos.getZ());
         ModPortalActivation.ensurePortalAt(targetLevel, arrivalCenter);
 
@@ -60,7 +62,7 @@ public class ModPortalBlock extends Block {
         double yawRad = Math.toRadians(player.getYRot());
         int landingX = pos.getX() + (int) Math.round(Math.cos(yawRad) * 10);
         int landingZ = pos.getZ() + (int) Math.round(Math.sin(yawRad) * 10);
-        int landingSurfaceY = targetLevel.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, landingX, landingZ);
+        int landingSurfaceY = surfaceY(targetLevel, landingX, landingZ);
         BlockPos landingPos = new BlockPos(landingX, landingSurfaceY, landingZ);
         // La heightmap seule ne suffit pas toujours (surplombs, canyons creusés par les carvers
         // après son calcul) : on dégage explicitement 2 blocs d'air pour garantir que le joueur
@@ -84,5 +86,14 @@ public class ModPortalBlock extends Block {
 
         player.teleport(transition);
         player.setPortalCooldown();
+    }
+
+    // Level#getHeight renvoie le Y minimum du monde quand le chunk n'est pas encore chargé
+    // (cas du tout premier voyage vers une zone jamais visitée) : le portail se retrouvait
+    // alors enterré tout en bas de la dimension. getChunk force le chargement (et la
+    // génération si besoin) jusqu'au statut FULL avant de lire la heightmap.
+    private static int surfaceY(ServerLevel level, int x, int z) {
+        LevelChunk chunk = level.getChunk(SectionPos.blockToSectionCoord(x), SectionPos.blockToSectionCoord(z));
+        return chunk.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) + 1;
     }
 }
