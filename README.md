@@ -50,6 +50,6 @@ Java 21 · Fabric Loader · Fabric API · Fabric Loom · mappings officiels Moja
 
 ## Licence
 
-CC0 1.0, héritée du modèle de mod Fabric : voir [LICENSE](LICENSE).
+MIT : voir [LICENSE](LICENSE).
 
 🔗 Portfolio : [rafatns.vercel.app](https://rafatns.vercel.app)
