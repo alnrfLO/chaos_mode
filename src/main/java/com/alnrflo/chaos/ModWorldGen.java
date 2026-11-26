@@ -9,7 +9,6 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 public class ModWorldGen {
 
     public static void register() {
-        // Génération de semi_chaos_ore dans l'Overworld
         BiomeModifications.addFeature(
             BiomeSelectors.foundInOverworld(),
             GenerationStep.Decoration.UNDERGROUND_ORES,

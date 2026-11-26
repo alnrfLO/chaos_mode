@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 
 public class ModItems {
 
-    //liste vide, donc ton outil n'est jamais "incorrect"
     public static final TagKey<Block> INCORRECT_FOR_CHAOS_TOOL =
             TagKey.create(Registries.BLOCK, Chaos.id("incorrect_for_chaos_tool"));
 
@@ -20,24 +19,16 @@ public class ModItems {
 
     public static final TagKey<Item> SEMI_CHAOS_MATERIAL_TOOL = TagKey.create(Registries.ITEM, Chaos.id("semi_chaos_material_tool"));
 
-    // pur chaos : au-dessus de la netherite (durabilité 2031, vitesse 9, bonus degats 4, enchantabilite 15) sur tous les points
-    // durabilite 2600, vitesse 10, bonus degats 5, enchantabilite 20
     public static final ToolMaterial CHAOS_MATERIAL = new ToolMaterial(INCORRECT_FOR_CHAOS_TOOL, 2600, 10.0F, 5.0F, 20, CHAOS_MATERIAL_TOOL);
 
-    // semi chaos : entre le diamant (durabilite 1561, vitesse 8, bonus degats 3, enchantabilite 10) et la netherite
-    // durabilite 1800, vitesse 8.5, bonus degats 3.5, enchantabilite 12
     public static final ToolMaterial SEMI_CHAOS_MATERIAL = new ToolMaterial(INCORRECT_FOR_CHAOS_TOOL, 1800, 8.5F, 3.5F, 12, SEMI_CHAOS_MATERIAL_TOOL);
-
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
 
-        // Create the item key.
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(Chaos.MOD_ID, name));
 
-        // Create the item instance.
         T item = itemFactory.apply(settings.setId(itemKey));
 
-        // Register the item.
         Registry.register(BuiltInRegistries.ITEM, itemKey, item);
 
         return item;

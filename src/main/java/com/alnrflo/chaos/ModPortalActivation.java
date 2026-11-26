@@ -8,14 +8,6 @@ import net.minecraft.world.level.block.Blocks;
 
 public class ModPortalActivation {
 
-    // Cadre en losange (relatif au centre), toujours à plat au sol (plan X-Z)
-    //     F
-    //    F F
-    //   F   F
-    //  F     F
-    //   F   F
-    //    F F
-    //     F
     private static final int[][] FRAME_OFFSETS = {
         {0, 3},
         {-1, 2}, {1, 2},
@@ -26,7 +18,6 @@ public class ModPortalActivation {
         {0, -3}
     };
 
-    // Intérieur du losange (là où le portail se place)
     private static final int[][] INTERIOR_OFFSETS = {
         {0, 2},
         {-1, 1}, {0, 1}, {1, 1},
@@ -36,13 +27,8 @@ public class ModPortalActivation {
     };
 
     public static void register() {
-        // L'activation se fait maintenant via briquet sur chaos_portal_frame
     }
 
-    /**
-     * Appelé depuis ChaosPortalFrameBlock quand un briquet est utilisé sur un bloc du cadre.
-     * Le cadre n'est reconnu qu'à plat au sol.
-     */
     public static boolean tryActivateFromFrame(ServerLevel level, BlockPos framePos) {
         for (int[] frameOffset : FRAME_OFFSETS) {
             BlockPos center = framePos.offset(-frameOffset[0], 0, -frameOffset[1]);
@@ -55,10 +41,6 @@ public class ModPortalActivation {
         return false;
     }
 
-    /**
-     * Garantit qu'un portail (cadre + intérieur) existe à cet endroit, en le construisant
-     * de force si besoin. Utilisé à l'arrivée pour permettre de repartir tranquillement.
-     */
     public static void ensurePortalAt(ServerLevel level, BlockPos center) {
         if (level.getBlockState(center).is(ModBlocks.CHAOS_PORTAL)) {
             return;
@@ -75,9 +57,6 @@ public class ModPortalActivation {
         }
     }
 
-    // Le cadre est posé à une hauteur unique (celle du centre) ; sur un terrain avec du relief,
-    // le sol environnant peut être plus haut et ensevelir une partie du portail. On dégage
-    // donc l'air au-dessus pour garantir qu'il reste visible et praticable.
     private static void clearHeadroom(ServerLevel level, BlockPos pos) {
         for (int dy = 1; dy <= 3; dy++) {
             BlockPos above = pos.above(dy);
